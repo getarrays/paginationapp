@@ -5,7 +5,6 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { ApiResponse } from './interface/api-response';
 import { Page } from './interface/page';
 import { UserService } from './service/user.service';
-import { LoadingService } from './service/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +17,7 @@ export class AppComponent implements OnInit {
   private currentPageSubject = new BehaviorSubject<number>(0);
   currentPage$ = this.currentPageSubject.asObservable();
 
-  constructor(private userSevice: UserService, public loadingService: LoadingService) { }
+  constructor(private userSevice: UserService) { }
 
   ngOnInit(): void {
     this.loadingService.loadingOn();
